@@ -1,0 +1,65 @@
+.toolbar{
+  background: #43299F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #BDB5EE;
+  }
+
+.logo {
+  width: 9vh;
+  height: 9vh;
+  }
+  
+.title {
+  margin-left: 0.3em;
+  font-family: 'Gentium Book Plus', serif;
+  font-size: xx-large;
+}
+.logo-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-button-row {
+  max-width: 600px;
+  margin: 8px 8px 8px 0;
+}
+
+  .container-cards{
+    max-width: 85vmax;
+    margin: 6vmax;
+    display: flex;
+    flex-direction: column;
+  }
+  .glass-container{
+    color: #BDB5EE;
+    font-family: 'Gentium Book Plus', serif;
+    font-size: large;
+    gap: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(9px);
+    background-color: #43299F;
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+    border: 2px rgba(255,255,255,0.4) solid;
+    border-bottom: 2px rgba(40,40,40,0.35) solid;
+    border-right: 2px rgba(40,40,40,0.35) solid;
+  }
+  .img-card{
+    
+    max-width: 50vh;
+    max-height: 50vh;
+  }
+  .brand{
+    margin: 2vh;
+    font-size: 5vh;
+  }
+  .model{
+    margin: 2vh;
+    font-size: 3vh;
+  }
+  .year{
+    margin: 2vh;
+    font-size: 3vh;
+  }

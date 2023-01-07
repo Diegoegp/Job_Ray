@@ -1,0 +1,36 @@
+<p class="navbar">
+  <mat-toolbar class="toolbar">
+    <div class="logo-brand">
+      <img class="logo" src="https://images.vexels.com/media/users/3/128243/isolated/preview/a1a5b9494d50bb3754bba547f2d88487-icono-plano-de-monitor-de-computadora.png" alt="logo">
+      <span class="title">Monitores CRUD</span>
+    </div>
+    <div class="example-button-row">
+      
+      <a mat-button href="http://localhost:4200/edit">Editar</a>
+      
+      <a mat-button href="http://localhost:4200/add">Agregar</a>
+    </div>
+  </mat-toolbar>
+</p>
+  <div>
+    <mat-grid-list class="container-cards" cols="3" rowHeight = "1:1" gutterSize = "15">
+      <mat-grid-tile class="glass-container" id="glass" *ngFor="let Monitor of monitorsArray">
+        <div class="card">
+          <div class="example-button-container">
+          </div>
+          <div>
+            <img class="img-card" src="http://cdn.shopify.com/s/files/1/0253/6472/5856/products/image-removebg-preview_80_1200x1200.png?v=1612997626" alt="monitor">
+          </div>
+          <div class="brand">
+            {{Monitor.brand}}
+          </div>
+          <div class="model">
+            {{Monitor.model}}
+          </div>
+          <div class="year">
+            {{Monitor.year}}
+          </div>
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </div>

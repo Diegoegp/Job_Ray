@@ -1,0 +1,57 @@
+<p class="navbar">
+  <mat-toolbar class="toolbar">
+    <div class="logo-brand">
+      <img class="logo" src="https://images.vexels.com/media/users/3/128243/isolated/preview/a1a5b9494d50bb3754bba547f2d88487-icono-plano-de-monitor-de-computadora.png" alt="logo">
+      <span class="title">Monitores CRUD</span>
+    </div>
+    <div class="example-button-row">
+      <a mat-button href="http://localhost:4200/edit">Editar</a>
+      <a mat-button href="http://localhost:4200">Inicio</a>
+    </div>
+  </mat-toolbar>
+</p>
+<div>
+  <h1 class="subtitle">Agregar Monitores</h1>
+</div>
+<div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profileFormGroup">
+    <div class="form-group">
+      <mat-grid-list cols="2" rowHeight="4em" gutterSize = "15" class="form" >
+        <mat-grid-tile class="form-box">
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="brand">Marca</mat-label>
+            <input matInput id="brand" type="text" formControlName="brand">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile class="form-box">
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="model">Modelo</mat-label>
+            <input matInput id="model" type="text" formControlName="model">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="year">Año</mat-label>
+            <input matInput id="year" type="text" formControlName="year">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="inches">Pulgadas</mat-label>
+            <input matInput id="inches" type="text" formControlName="inches">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="color">Color</mat-label>
+            <input matInput id="color" type="text" formControlName="color">
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-add">
+        <p>Completa para habilitar</p>
+        <button mat-button class="button" type="submit" [disabled]="!profileForm.valid">Agregar</button>
+      </div>
+    </div>
+  </form>
+</div>

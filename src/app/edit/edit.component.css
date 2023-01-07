@@ -1,0 +1,34 @@
+.toolbar{
+    background: #43299F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #BDB5EE;
+    }
+  
+  .logo {
+    width: 9vh;
+    height: 9vh;
+    }
+    
+  .title {
+    margin-left: 0.3em;
+    font-family: 'Gentium Book Plus', serif;
+    font-size: xx-large;
+  }
+  .logo-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .demo-table {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }

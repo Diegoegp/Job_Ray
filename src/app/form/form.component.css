@@ -1,0 +1,52 @@
+.toolbar {
+  background: #43299F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #BDB5EE;
+}
+.logo {
+  width: 9vh;
+  height: 9vh;
+}
+.title {
+  font-family: 'Gentium Book Plus', serif;
+  margin-left: 0.3em;
+  font-size: xx-large;
+}
+.logo-brand {
+  font-family: 'Gentium Book Plus', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.example-button-row {
+  font-family: 'Gentium Book Plus', serif;
+}
+.subtitle {
+  font-family: 'Gentium Book Plus', serif;
+  font-size: 2.2em;
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(13, 13, 13);
+}
+.profileFormGroup {
+  font-family: 'Gentium Book Plus', serif;
+  margin: 8vh;
+}
+.form {
+  margin-left: 35%;
+  margin-right: 35%;
+}
+.button-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  background-color: #43299F;
+  color: rgb(13, 13, 13);
+}
