@@ -1,54 +1,38 @@
-import { Component } from '@angular/core';
-import { Monitor } from '../models/monitor'
+import { Component, OnInit } from '@angular/core';
+import { RestService } from '../rest.service';
+
+export interface Monitors {
+  id: number;
+  brand: string;
+  model: string;
+  year: string;
+  inches: number;
+  color: string;
+}
+
+var ELEMENT_DATA: Monitors[] = [];
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
-  monitorsArray: Monitor[] = [
-    { id: 5,
-      brand: "Alcatel",
-      model: "spc14",
-      year: "2021",
-      inches: 14,
-      color: "verde"
-    },
-    { id: 6,
-      brand: "Sony",
-      model: "rm15",
-      year: "2022",
-      inches: 18,
-      color: "azul"
-    },
-    { id: 7,
-      brand: "Lg",
-      model: "LG57",
-      year: "2022",
-      inches: 24,
-      color: "negro"
-    },
-    { id: 8,
-      brand: "Alcatel",
-      model: "spc14",
-      year: "2021",
-      inches: 14,
-      color: "verde"
-    },
-    { id: 9,
-      brand: "Sony",
-      model: "rm15",
-      year: "2022",
-      inches: 18,
-      color: "azul"
-    },
-    { id: 10,
-      brand: "Lg",
-      model: "LG57",
-      year: "2022",
-      inches: 24,
-      color: "negro"
-    }
-  ];
+export class MainComponent implements OnInit{
+
+  constructor(private RestService:RestService){
+  }
+
+  ngOnInit(): void {
+    this.apiMonitors();
+  };
+
+  public apiMonitors() {
+    this.RestService.get("/api/monitors").subscribe((respuesta:any) => {
+      this.dataSource = respuesta
+  })
+  
+  }
+
+  dataSource = [...ELEMENT_DATA];
+
 }

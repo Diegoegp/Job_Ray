@@ -1,7 +1,6 @@
-import {Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
-import {MatTable} from '@angular/material/table';
-
+import { MatTable } from '@angular/material/table';
 
 export interface Monitors {
   id: number;
@@ -11,11 +10,8 @@ export interface Monitors {
   inches: number;
   color: string;
 }
-var ELEMENT_DATA: Monitors[] = [];
 
-/*
-  @title 
- */
+var ELEMENT_DATA: Monitors[] = [];
 
 @Component({
   selector: 'app-edit',
@@ -30,19 +26,15 @@ export class EditComponent implements OnInit{
 
   ngOnInit(): void {
     this.apiMonitors();
-    this.prueba();
   }
   
   public apiMonitors() {
-    this.RestService.get("https://localhost:44381/api/monitors").subscribe((respuesta:any) => {
-      return respuesta;
+    this.RestService.get("/api/monitors").subscribe((respuesta:any) => {
+      this.dataSource = respuesta;
   })
   
   }
 
-  public prueba(){
-    return console.log(ELEMENT_DATA);
-  }
 
   displayedColumns: string[] = ['Id', 'Marca', 'Modelo', 'Año', 'Pulgadas', 'Color'];
   dataSource = [...ELEMENT_DATA];

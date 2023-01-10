@@ -1,0 +1,7 @@
+{
+    "/api/monitor/*":{
+        "target": "https://localhost:44381",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

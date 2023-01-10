@@ -51,15 +51,16 @@
     max-width: 50vh;
     max-height: 50vh;
   }
-  .brand{
-    margin: 2vh;
-    font-size: 5vh;
-  }
-  .model{
-    margin: 2vh;
+  .group-info{
+    display: flex;
+    align-items:initial;
+    flex-direction: row;
+    justify-content: space-evenly;
     font-size: 3vh;
   }
-  .year{
-    margin: 2vh;
-    font-size: 3vh;
+  label{
+    font-size: 2.5vh;
+  }
+  p{
+    font-size: 2vh;
   }

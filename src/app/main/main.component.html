@@ -14,21 +14,36 @@
 </p>
   <div>
     <mat-grid-list class="container-cards" cols="3" rowHeight = "1:1" gutterSize = "15">
-      <mat-grid-tile class="glass-container" id="glass" *ngFor="let Monitor of monitorsArray">
+      <mat-grid-tile class="glass-container" id="glass" *ngFor="let Monitor of dataSource">
         <div class="card">
-          <div class="example-button-container">
-          </div>
           <div>
             <img class="img-card" src="http://cdn.shopify.com/s/files/1/0253/6472/5856/products/image-removebg-preview_80_1200x1200.png?v=1612997626" alt="monitor">
           </div>
-          <div class="brand">
-            {{Monitor.brand}}
-          </div>
-          <div class="model">
-            {{Monitor.model}}
-          </div>
-          <div class="year">
-            {{Monitor.year}}
+          <div class="group-info">
+            <div class="info-1">
+              <div class="brand">
+                <label for="brand">Marca: </label>
+                {{Monitor.brand}}
+              </div>
+              <div class="inches">
+                <label for="inches">Pulgadas: </label>
+                {{Monitor.inches}}
+              </div>
+              <div class="year">
+                <label for="color">Color: </label>
+                {{Monitor.color}}
+              </div>
+            </div>
+            <div class="info-2">
+              <div class="model">
+                <label for="model">Modelo: </label>
+                {{Monitor.model}}
+              </div>
+              <div class="year">
+                <label for="year">Año: </label>
+                {{Monitor.year}}
+              </div>
+            </div>
           </div>
           </div>
         </mat-grid-tile>

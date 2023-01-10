@@ -1,5 +1,5 @@
 export class Monitor {
-    id: number;
+    id?: number;
     brand: string;
     model: string;
     year: string;
