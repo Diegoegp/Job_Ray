@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RestService } from '../rest.service';
 
@@ -9,7 +9,11 @@ import { RestService } from '../rest.service';
   providers: [RestService]
 })
 
-export class FormComponent {
+export class FormComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.profileForm.reset();
+  }
 
   constructor(private RestService:RestService){
   }
@@ -18,21 +22,12 @@ export class FormComponent {
     brand:  new FormControl('', [Validators.required]),
     model: new FormControl('', [Validators.required]),
     year: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]),
-    inches: new FormControl('', [Validators.required, Validators.pattern('[0-9 ]*')]),
+    inches: new FormControl(0, [Validators.required, Validators.pattern('[0-9 ]*')]),
     color: new FormControl('', [Validators.required]),
   });
 
   onSubmit() {
-
-    const dataMonitors = {
-      brand: this.profileForm.value.brand,
-      model: this.profileForm.value.model,
-      year: this.profileForm.value.year,
-      inches: this.profileForm.value.inches,
-      color: this.profileForm.value.color,
-    };
-    console.log(dataMonitors);
-    this.RestService.post(dataMonitors).subscribe(result =>{
+    this.RestService.post(this.profileForm.value).subscribe(result =>{
       console.log(result);
     })
   }
