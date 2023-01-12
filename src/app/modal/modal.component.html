@@ -1,0 +1,50 @@
+<h1 class="title" mat-dialog-title>Editar Monitor</h1>
+<div>
+  <form [formGroup]="profileFormModal" (ngSubmit)="onSubmit()" class="profileFormGroup">
+    <div class="form-group">
+      <mat-grid-list cols="2" rowHeight="4em" gutterSize = "15" class="form" >
+        <mat-grid-tile class="form-box">
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="id">Id</mat-label>
+            <input matInput id="id" type="number" formControlName="id" [(ngModel)]="data.id">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile class="form-box">
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="brand">Marca</mat-label>
+            <input matInput id="brand" type="text" formControlName="brand" [(ngModel)]="data.brand">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile class="form-box">
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="model">Modelo</mat-label>
+            <input matInput id="model" type="text" formControlName="model" [(ngModel)]="data.model">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="year">Año</mat-label>
+            <input matInput id="year" type="text" formControlName="year" [(ngModel)]="data.year">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="inches">Pulgadas</mat-label>
+            <input matInput id="inches" type="number" formControlName="inches" [(ngModel)]="data.inches">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width">
+            <mat-label class="label" for="color">Color</mat-label>
+            <input matInput id="color" type="text" formControlName="color" [(ngModel)]="data.color">
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-add" mat-dialog-actions>
+        <p>Completa para habilitar</p>
+        <button mat-button (click)="OnClickNo()" mat-dialog-close>Cancelar</button>
+        <button mat-button class="button" type="submit" [disabled]="!profileFormModal.valid">Aceptar</button>
+      </div>
+    </div>
+  </form>
+</div>

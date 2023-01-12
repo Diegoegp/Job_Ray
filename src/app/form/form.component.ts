@@ -30,5 +30,6 @@ export class FormComponent implements OnInit{
     this.RestService.post(this.profileForm.value).subscribe(result =>{
       console.log(result);
     })
+    this.profileForm.reset()
   }
 }

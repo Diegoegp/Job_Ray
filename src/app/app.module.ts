@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormComponent,
     MainComponent,
     EditComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

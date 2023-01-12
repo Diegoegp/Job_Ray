@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { RestService } from '../rest.service';
+import { ModalComponent } from '../modal/modal.component';
 
 const COLUMNS_SCHEMA = [
   {
@@ -62,6 +63,7 @@ export class EditComponent implements OnInit{
 
   dataUpdate:any = {
 
+      id:0,
       brand: "",
       model: "",
       year: "",
@@ -71,6 +73,10 @@ export class EditComponent implements OnInit{
 
   constructor(private RestService:RestService, public dialog: MatDialog){
   }
+  
+  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
+  columnsSchema: any = COLUMNS_SCHEMA;
+  dataSource = [...ELEMENT_DATA];
 
   ngOnInit(): void {
     this.apiMonitors();
@@ -81,38 +87,31 @@ export class EditComponent implements OnInit{
       this.dataSource = respuesta;
   })}
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, element:any): void {
-    this.dialog.open(UpdateModal, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
+  openDialog(element:any): void {
+    
+    this.dataUpdate.id = element.id,
     this.dataUpdate.brand = element.brand,
     this.dataUpdate.model = element.model,
     this.dataUpdate.year = element.year,
     this.dataUpdate.inches = element.inches,
     this.dataUpdate.color = element.color
-    console.log(element)
+
+    const dialogRef = this.dialog.open(ModalComponent,{
+      data:{
+        id: this.dataUpdate.id,
+        brand: this.dataUpdate.brand,
+        model: this.dataUpdate.model,
+        year: this.dataUpdate.year,
+        inches: this.dataUpdate.inches,
+        color: this.dataUpdate.color
+      }
+    })
   }
-  
 
-  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
-  dataSource = [...ELEMENT_DATA];
-  columnsSchema: any = COLUMNS_SCHEMA;
-
-
-  /*
-  removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
-  }
-  */
-}
-
-@Component({
-  selector: 'update-modal',
-  templateUrl: './update-modal.html',
-})
-export class UpdateModal {
-  constructor(public dialogRef: MatDialogRef<UpdateModal>) {}
+  deleteMonitor(element:any){
+    this.RestService.delete(element).subscribe(result =>{
+      console.log(result);
+      this.apiMonitors()
+    })
+  } 
 }
